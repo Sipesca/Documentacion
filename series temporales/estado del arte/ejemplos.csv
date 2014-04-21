@@ -1,0 +1,24 @@
+dataset;horizon;benchmark;reference
+Univariate ARIMA;;;
+Electricity load (min);1–30 min;Wiener filter;\cite{DiCaprio59}
+Quarterly automobile insurance paid claim costs;8 quarters;Log-linear regression;\cite{Cummins1985203}
+Daily federal funds rate;1 day;Random walk;\cite{Hein1988581}
+Quarterly macroeconomic data;1–8 quarters;Wharton model;\cite{Dhrymes198881}
+Monthly department store sales;1 month;Simple exponential smoothing;\cite{Geurts1986261} \cite{Geurts1990497}  \cite{Pack1990501}
+Monthly demand for telephone services;3 years;Univariate state space;\cite{Grambsch199053}
+Yearly population totals;20–30 years;Demographic models;\cite{Pflaumer1992329}
+Monthly tourism demand;1–24 months;Univariate state space- multivariate state space;\cite{duPreez2003435}
+Dynamic regression/transfer function;;;
+Monthly telecommunications traffic;1 month;Univariate ARIMA;\cite{Layton1986413}
+Weekly sales data;2 years;n.a.;\cite{PLeone1987463}
+Daily call volumes;1 week;Holt–Winters;\cite{Bianchi1998497}
+Monthly employment levels;1–12 months;Univariate ARIMA;\cite{Weller1989241}
+Monthly and quarterly consumption of natural gas;1 month/1 quarter;Univariate ARIMA;\cite{Liu19913}
+Monthly electricity consumption;1–3 years;Univariate ARIMA;\cite{Harris1993437}
+VARIMA;;;
+Yearly municipal budget data;Yearly (in-sample);Univariate ARIMA;\cite{Downs1983377}
+Monthly accounting data;1 month;Regression, univariate, ARIMA, transfer function;\cite{Hillmer1983389}
+Quarterly macroeconomic data;1–10 quarters;Judgmental methods, univariate ARIMA;\cite{Oller1985135}
+Monthly truck sales;1–13 months;Univariate ARIMA, Holt–Winters;\cite{Heuts198857}
+Monthly hospital patient movements;2 years;Univariate ARIMA, Holt–Winters;\cite{Lin1989195}
+Quarterly unemployment rate;1–8 quarters;Transfer function;\cite{Edlund199361}

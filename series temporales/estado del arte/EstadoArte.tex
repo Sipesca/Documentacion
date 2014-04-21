@@ -3,8 +3,15 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{url}
-\usepackage[spanish]{babel}
+\usepackage{csvsimple}
+\usepackage[spanish,es-noshorthands,es-ucroman,es-tabla]{babel}
 \usepackage{epstopdf}
+\usepackage{array}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 
 \begin{document}
 
@@ -42,7 +49,7 @@ Una serie temporal es una secuencia de observaciones dispuestas a intervalos reg
 
 Aquí se destacan los trabajos de investigación publicados en revistas patrocinadas por el Instituto Internacional de Predictores (IIF), aunque también se cubren publicaciones clave de otras revistas. Se ofrece así una guía selectiva para la literatura en predicción de series temporales, cubriendo el periodo 1982-2005 y resumiendo cerca de 940 artículos que incluyen aproximadamente 340 artículos del IIF. También se revisan artículos y libros clave publicados en otros sitios que han sido altamente influyentes para varios desarrollos en este campo. Los trabajos referidos comprenden 380 artículos de revista y 20 libros y monografías. 
 
-Los artículos se han clasificado primero de acuerdo a los modelos introducidos en la literatura de series temporales, en lugar de hacerlo respecto a los métodos. Por ejemplo, los métodos bayesianos en general puedn aplicarse a todos los modelos. Los artículos que no conciernen con un modelo particular fueron entonces clasificados atendiendo a los diferentes problemas que abordan (medidias de precisión, combinación). 
+Los artículos se han clasificado primero de acuerdo a los modelos introducidos en la literatura de series temporales, en lugar de hacerlo respecto a los métodos. Por ejemplo, los métodos bayesianos en general puedn aplicarse a todos los modelos. Los artículos que no conciernen con un modelo particular fueron entonces clasificados atendiendo a los diferentes problemas que abordan (medidas de precisión, combinación). 
 
 Puede haber artículos que no aparezcan o que sean citados por otros autores, aunque esto no significa que no sean importantes. Esta revisión es un breve recorrido histórico de los principales desarrollos. 
 
@@ -86,10 +93,21 @@ Una práctica habitual es restringir los parámetros de alisado al rango de 0 a 
 \subsection{Preámbulo}
 Los primeros intentos de estudiar series temporales, particularmente en el siglo 19, estaban generalmente caracterizados por la idea de un mundo determinista. Fue la mayor contribución de Yule (1927) \cite{Yule1927267} la que impulsó la noción de aleatoriedad en series temporales postulando que cada serie temporal puede ser considerada como la realización de un proceso estocástico. Basado en esa sencilla idea, se desarrolló desde entonces un gran número de métodos de series temporales. Slutsky, Walker, Yaglom y Yule formularon el concepto de los modelos auto-regresivos (AR) y media móvil (MA). El teorema de la descomposición de Wold condujo a la formulación y solución del problema de predicción lineal de Kolmogorov (1941) \cite{Kolmogorov19411}. Desde entonces, una gran cantidad de literatura ha aparecido en el área de series temporales, tratando estimación de parámetros, identificación, comprobación de modelos y predicción, véase Newbold (1983) \cite{Newbold198323} para un estudio anterior.
 
-La publicación \emph{Time Series Analysis: Forecasting and Control} de Box y Jenkins (1970) \cite{Box1976} integró el conocimiento existente. Además, estos autores desarrollaron una ciclo coherente, versátil e iterativo en tres etapas para la identificación, estimación y verificación de series temporales (conocido como el enfoque Box-Jenkins). El libro ha tenido un enorme impacto en la teoría y práctica moderna de análisis y predicción de series temporales. Con la llegada de los ordenadores, se popularizó el uso de los modelos ARIMA y se extendió a muchas áreas de la ciencia. De hecho, la predicción de series temporales discretas mediante modelos ARIMA univariantes, modelos de función de transferencia (regresión dinámica), y modelos ARIMA multivariados han generado bastantes artículos en IJF. A menudo estudios de naturaleza empírica, que usan uno o varios métodos/modelos como punto de referencia para comparar. 
+La publicación \emph{Time Series Analysis: Forecasting and Control} de Box y Jenkins (1970) \cite{Box1976} integró el conocimiento existente. Además, estos autores desarrollaron una ciclo coherente, versátil e iterativo en tres etapas para la identificación, estimación y verificación de series temporales (conocido como el enfoque Box-Jenkins). El libro ha tenido un enorme impacto en la teoría y práctica moderna de análisis y predicción de series temporales. Con la llegada de los ordenadores, se popularizó el uso de los modelos ARIMA y se extendió a muchas áreas de la ciencia. De hecho, la predicción de series temporales discretas mediante modelos ARIMA univariantes, modelos de función de transferencia (regresión dinámica), y modelos ARIMA multivariados han generado bastantes artículos en IJF. A menudo estos estudios son de naturaleza empírica, y usan uno o varios métodos/modelos como punto de referencia para comparar. 
+\cite{Oller1985135}
+\begin{table}
+\caption{Lista de ejemplos de aplicaciones reales}
 
-(incluir tabla)
+\resizebox{12cm}{!}{
+\begin{tabular}{|L{5cm}|C{3cm}|L{4cm}|c|}\hline %
+\bfseries Dataset & \bfseries Horizonte & \bfseries Benchmark & \bfseries Referencia
+\\\hline
+\csvreader[separator=semicolon,head to column names, late after line=\\\hline]{ejemplos.csv}{}%
+{\dataset & \horizon & \benchmark & \reference }% 
 
+\end{tabular}
+}
+\end{table}
 \subsection{Univariado}
 
 El éxito de la metodología de Box-Jenkins se basa en el hecho de que los modelos pueden imitar el comportamiento de los diversos tipos de series y sin requerir muchos parámetros a estimar en la elección final del modelo. Sin embargo, a mediados de los años sesenta, la selección de un modelo era en gran medida una cuestión subjetiva del investigador, no había ningún algoritmo para especificar un modelo único. Desde entonces, muchas técnicas y métodos han surgido para añadir rigor matemático en el proceso de búsqueda de un modelo ARMA, incluyendo el criterio de información Akaike (AIC ), el error de predicción final de Akaike (FPE) y el criterio de información bayesiano ( BIC). A menudo, estos criterios se reducen a la minimización de errores de predicción a un paso (en la muestra) , con un término de penalización para el sobreajuste. FPE también ha sido generalizado para predicción a varios pasos (véase, por ejemplo , Bhansali , 1996 \cite{Bhansali1996577} y Bhansali , 1999 \cite{Bhansali1999295}) , pero esta generalización no ha sido utilizada en el área aplicada. Este también parece ser el caso de criterios basados en principios de validación cruzada y validación por división muestral (véase, por ejemplo , West , 1996 \cite{West19961084}), haciendo uso de errores de predicción fuera-de-muestra; véase Peña y Sánchez (2005) \cite{Pena2005135} para un enfoque relacionado a considerar.
