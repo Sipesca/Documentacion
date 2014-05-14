@@ -48,6 +48,8 @@ bonito abstract test
 \section{Introducción}
 \label{sec:intro}
 
+Esto es una revisión de la literatura en el área de predicción de series temporales y un estado del arte en su aplicación a la predicción del flujo de tráfico.
+
 
 \section{Métodos convencionales}
 
@@ -290,26 +292,25 @@ Los cambios en el almacenamiento y recolección de datos también conducirá a n
 
 Los conjuntos de datos grandes, también se prestan a métodos de computación intensiva. Mientras las redes neuronales se han usado en predicción durante más de dos décadas, existen muchas cuestiones excepcionales asociadas con su uso e implementación, incluyendo el cuándo van a mejorar probablemente otros métodos. Otros métodos que implican computación pesada (como bagging y boosting) son incluso menos entendidos en el contexto de predicción. Con la disponibilidad de conjuntos de datos muy grandes y potencia alta de computación se espera que ésta sea un área de investigación importante.
 
-\section{Machine Learning (ML) en predicción de series temporales}
+\section{Métodos de Machine Learning (ML)}
 En las últimas dos décadas los modelos de ML se han establecido como serios competidores a los modelos estadísticos convencionales en la comunidad de predicción \cite{Ahmed2010594},\cite{Palit2005},\cite{Zhang199835}. Estos modelos, también llamados de caja negra o modelos orientados a datos \cite{Mitchell1997}, son ejemplos de modelos lineales no paramétricos en los que sólo se usan datos históricos para aprender la dependencia estadística entre valores pasados y futuros. Werbos encontró que ANN mejoraba los métodos estadísticos clásicos tales como regresión lineal o el enfoque Box-Jenkins \cite{Werbos1974} \cite{Werbos1988339}. En un estudio similar realizado por Lapedes y Farber \cite{Lapedes1987} se concluye que las ANNs pueden ser usadas satisfactoriamente para modelado y predicción de series temporales no lineales. Posteriormente, otros modelos han aparecido tales como árboles de decisión, máquinas de vectores soporte y regresión por vecinos más cercanos \cite{Hastie2001} \cite{Alpaydin2004}. Además se ha examinado en varias competiciones de predicción la precisión empírica de varios modelos de aprendizaje automático bajo diferentes condiciones de datos (NN3, NN5 y las competiciones ESTSP \cite{Crone2009456}\cite{Crone}\cite{Lendasse2007}) creando interesantes debates en el área de minería de datos y predicción \cite{Hand2008}\cite{Price2009452}\cite{Crone2009456}.
 
-A continuación se revisa el rol de las técnicas de aprendizaje automático bajo tres aspectos principalmente: la formalización de problemas de predicción de un paso como tareas de aprendizaje supervisado, el uso de técnicas de aprendizaje local como herramienta para tratar datos temporales y el papel de la estrategia de predicción al pasar de predicciones de un paso a multi-paso. 
-
-\subsection{Dependencias temporales}
 
 El aprendizaje supervisado consiste en el modelado, bajo un conjunto de observaciones finitas, de la relación entre un conjunto de variables de entrada y una o más variables de salida, las cuales se consideran de alguna manera dependientes de la entrada. Una vez que el modelo de esta relación se obtiene, es posible usarlo para predicción a un paso. En predicciones a un paso, los \emph{n} valores previos de la serie son la entrada para formular un problema genérico de regresión. 
 
 El enfoque general para modelar la relación de entrada/salida, con la salida escalar y la entrada vectorial, se basa en la disponibilidad de un conjunto de pares observados conocido como el conjunto de entrenamiento, donde el vector de entrada contiene los \emph{n} valores previos y el valor de salida es el sucesor a aquellos.
 
-\subsubsection{Técnicas de aprendizaje local\\}
+\subsection{Técnicas de aprendizaje local\\}
+A continuación se revisa el rol de las técnicas de aprendizaje automático bajo tres aspectos principalmente: la formalización de problemas de predicción de un paso como tareas de aprendizaje supervisado, el uso de técnicas de aprendizaje local como herramienta para tratar datos temporales y el papel de la estrategia de predicción al pasar de predicciones de un paso a multi-paso. 
+
 Si bien existen multitud de técnicas de aprendizaje supervisado para predicción, las técnicas de aprendizaje local que se describen a continuación están motivadas por las siguientes razones:
 \begin{itemize}
 
-\item{} No requieren demasiadas suposiciones: el aprendizaje local no supone un conocimiento a priori del proceso subyacente a los datos. La única información disponible se representa por un conjunto de pares entrada/salida. Esta característica es especialmente importante en conjuntos de datos reales donde puede haber valores perdidos y las relaciones no son estacionarias. 
+\item No requieren demasiadas suposiciones: el aprendizaje local no supone un conocimiento a priori del proceso subyacente a los datos. La única información disponible se representa por un conjunto de pares entrada/salida. Esta característica es especialmente importante en conjuntos de datos reales donde puede haber valores perdidos y las relaciones no son estacionarias. 
 
-\item{}Capacidad de aprendizaje en línea: el número de muestras de entrenamiento puede incrementarse en el tiempo. En este caso, el aprendizaje local simplemente añade los nuevos puntos al conjunto y no necesita re-entrenamiento al aparecer nuevos datos.
+\item Capacidad de aprendizaje en línea: el número de muestras de entrenamiento puede incrementarse en el tiempo. En este caso, el aprendizaje local simplemente añade los nuevos puntos al conjunto y no necesita re-entrenamiento al aparecer nuevos datos.
 
-\item{}Modelado de no estacionariedad: los métodos de aprendizaje local pueden tratar configuraciones variables en el tiempo, donde el proceso estadístico subyacente de los datos no es estacionario. En este caso, es suficiente con interpretar la noción de vecindad en un sentido espacio-temporal. Para cada punto, los vecinos son muestras similares obtenidas recientemente. Por tanto la variable temporal es tenida en cuenta para mejorar la precisión de las predicciones.
+\item Modelado de no estacionariedad: los métodos de aprendizaje local pueden tratar configuraciones variables en el tiempo, donde el proceso estadístico subyacente de los datos no es estacionario. En este caso, es suficiente con interpretar la noción de vecindad en un sentido espacio-temporal. Para cada punto, los vecinos son muestras similares obtenidas recientemente. Por tanto la variable temporal es tenida en cuenta para mejorar la precisión de las predicciones.
 \end{itemize}
 A continuación se describen dos técnicas de aprendizaje local, a saber, la técnica de vecinos más cercanos y el aprendizaje vago.
 
@@ -348,7 +349,7 @@ En  \cite{BenTaieb2009}  \cite{BenTaieb20101950} se presenta la estrategia DIRMO
 Una revisión más detallada y comparativa de las estrategias para predicción de series temporales multi-paso basadas en el algoritmo de aprendizaje local se puede encontrar en \cite{Roberts1982808}.
 
 
-\section{Redes neuronales en predicción}
+\subsection{Redes neuronales}
 
 Una red neuronal artificial (ANN) puede ser útil para procesos no lineales que tengan relaciones funcionales desconocidas y por tanto difíciles de ajustar (Darbellay y Slama, 2000 \cite{Darbellay200071}). La idea principal con ANN es que las entradas, o variables dependientes, son filtradas mediante una o más capas ocultas cada una de las cuales consta de nodos antes de alcanzar la variable de salida. La salida intermedia se enlaza a la salida final. Otros modelos son versiones específicas de ANN donde se impone cierta estructura (véase JoF Special Issue 17:5/6 (1998).
 
@@ -360,15 +361,22 @@ Un problema general con los modelos no lineales se encuentra en la complejidad d
 
 Con el tiempo, la importancia del riesgo de la parametrización excesiva y el sobreajuste ha sido reconocida por varios autores; véase Hippert, Bunn y Souza (2005) \cite{Hippert2005425} que usaron una gran ANN (50 entradas, 15 neuronas ocultas y 24 salidas) para predecir perfiles de carga de electricidad diaria. Sin embargo, la cuestión de si la ANN está sobre-parametrizada o no, sigue sin resolverse. Algunas ideas con valor potencial para construir ANNs minimizando el número de parámetros, usando inferencia estadística son las sugeridas en Teräsvirta, van Dijk y Medeiros (2005) \cite{Terasvirta2005755}.
 
-\subsection{Selección de retardos}
+\subsubsection{Selección de retardos}
 
-La propia selección de variables de entrada para construir el modelo es en sí mismo un problema de minería de datos. En este caso es necesario encontrar la dimensión de entrada mínima capaz de representar la relación entre los datos históricos. El teorema de Takens \cite{Takens1981366} establece que una dimensión alta a permite reconstruir correctamente un espacio de estados que garantiza una dinámica topológicamente idéntica a las dinámicas de los espacios de estado del sistema real. Esta elección de la dimensión se conoce como la dimensión activa \cite{Tanaka} o dimensión intrínseca.
+La propia selección de variables de entrada para construir el modelo es en sí mismo un problema de minería de datos. En este caso es necesario encontrar la dimensión de entrada mínima capaz de representar la relación entre los datos históricos. El teorema de Takens \cite{Takens1981366} establece que una dimensión alta a permite reconstruir correctamente un espacio de estados que garantiza una dinámica topológicamente idéntica a las dinámicas de los espacios de estado del sistema real. Esta elección de la dimensión se conoce como la dimensión activa o dimensión intrínseca.
 
 En \cite{ferreira2008new} se presenta un método evolutivo inspirado en el teorema de Takens para un modelo iterativo híbrido compuesto por una ANN con un algoritmo genético. El método primero itera sobre el algoritmo genético para obtener una solución con mínimo fitness y determinar así la dimensión activa. Posteriormente la ANN es ajustada. 
 
 Lukoseviciute y Ragulskis \cite{lukoseviciute2010evolutionary} dividen la selección de retardos en dos etapas, encontrando primero la dimensión óptima del espacio de fases mediante el algoritmo de falsos vecinos más cercanos y a continuación buscando un conjunto óptimo de retardos más cercanos mediante un algoritmo evolutivo para un sistema de inferencia difuso.
 
 Otros métodos utilizados para determinar la dimensión intrínseca son el análisis de componentes principales (PCA) el método de Grassberger-Procaccia \cite{grassberger2004measuring} y  el método de Box-Counting. 
+
+\subsection{Red de funciones de base radial}
+Este tipo de red neuronal se caracteriza por el uso de una función de base radial como función de activación de las neuronas. La salida de la red es una combinación lineal de las funciones de base radial aplicadas a la entrada. Entre los múltiples trabajos donde se ha estudiado su uso para predicción de series temporales cabe destacar \cite{chen1991orthogonal} 
+\subsection{Perceptrón multicapa}
+\subsection{Sistemas difusos}
+\subsection{Máquinas de vectores soporte}
+Las máquinas de vectores soporte 
 
 \section{Modelos aplicados a predicción del tráfico}
 
@@ -379,20 +387,41 @@ A pesar de las muchas iniciativas que han surgido como respuesta a los retos de 
 Una revisión de los modelos y teorías sobre tráfico fue proporcionada en \cite{Hoogendoorn2001283} donde son clasificados según el nivel de detalle con que se describe el flujo de vehículos. Para cada categoría discuten varias cuestiones como precisión del modelo, su aplicabilidad o calibración y validación.  En esta línea \cite{Vlahogianni2004533} propone un marco de trabajo para el desarrollo de modelos de predicción de tráfico a corto plazo que consiste en desagregar el proceso de modelado en tres partes: determinar el ámbito, el proceso conceptual de especificación de la salida y el proceso de modelado en sí, que incluye la selección del enfoque metodológico apropiado, el tipo de entradas y salidas usadas y la calidad de los datos.
 
 
-
-
 \subsection{Redes neuronales}
+
+
 En la literatura encontramos un uso extensivo de redes neuronales aplicadas a predicción de tráfico con enfoques muy variopintos en cuanto al modelo de red neuronal y los algoritmos de ML utilizados. Entre los trabajos explorados se enumeran a modo de ejemplos los siguientes:
 \begin{itemize}
+
 \item En \cite{Ishak2004452} se realiza una comparación del rendimiento de cuatro arquitecturas diferentes tipo MIMO, a saber: el perceptrón multi-capa (MLP), una red modular que consiste en varios MLPs conectados y recombinados, una red de dos capas ocultas con PCA a la entrada y un sistema de inferencia neuro-difuso denominado CANFIS.
+
 \item En \cite{Innamaa2005649} se estudia la capacidad de predicción del tiempo de viaje mediante una MLP demostrando que un modelo relativamente sencillo puede obtener buenos resultados.
+
 \item En \cite{Zhang2000472} se utiliza un enfoque recursivo para predecir con éxito las condiciones de tráfico mediante red neuronal, si bien destacan posibles problemas de sensibilidad en los parámetros y la necesidad de llevar a cabo suficientes experimentos.
+
 \item Otro modelo de red neuronal consistente en una capa de entrada, una capa competitiva y otra de interpolación fue  propuesta en \cite{Dharia2003607} para reducir el tiempo de entrenamiento de backpropagation en un entorno simulado llamado TSIS (Traffic Software Integrated System). 
+
 \item En \cite{abdulhai2002short} se emplea un modelo de red neuronal con retardos temporales (Time Delay Neural Network) evolucionado mediante algoritmos genéticos para predicción de tráfico a corto plazo.
+
+\item El enfoque genético utilizado en \cite{vlahogianni2005optimized} permite seleccionar una estructura de red neuronal adecuada evaluando su rendimiento tanto en datos univariados como multivariados.
+También se ha usado con éxito un modelo neuro-difuso en \cite{yin2002urban} para predecir el flujo de tráfico en una red urbana de calles señalizadas.
+
+\item La cuestión de cuándo usar una red neuronal o un modelo estadístico para predecir el tráfico es estudiada en \cite{kirby1997should} donde se discute la relación de estos modelos a la estructura de los datos de tráfico.
+
 
 \end{itemize}
 
+\subsection{Redes bayesianas}
+Castillo, Menéndez y Sánchez-Cambronero (2007) \cite{castillo2008predicting} abordan la cuestión de predicción utilizando una red bayesiana que proporciona la densidad conjunta de todas las variables no observadas cuyas densidades marginales y condicionadas permiten realizar predicciones conjuntas e intervalos de probabilidad.
+En \cite{sun2006bayesian} utilizan información de carreteras contiguas para modelar el flujo mediante una red bayesiana abarcando la cuestión de predicción con datos incompletos.
 
+
+\subsection{Otros}
+
+
+Dion y Rakha (2005) \cite{dion2006estimating} utilizaron datos de identificación automática de vehículos para probar un algoritmo de filtrado paso-baja adaptativo capaz de seguir la pista del tiempo medio de viaje en un enlace suprimiendo señales de ruido de alta frecuencia.
+
+Lam y Yin (2001) \cite{lam2001activity} presentan un modelo de asignación de tráfico basado en actividades diarias. Mediante una regresión múltiple formulan el comportamiento de elección de actividad de los individuos y utilizan después esta información para describir el comportamiento de elección de ruta como la condición de equilibrio dinámica ideal para el usuario.
 
 \bibliographystyle{splncs}
 
