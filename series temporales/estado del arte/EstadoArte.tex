@@ -371,37 +371,67 @@ Lukoseviciute y Ragulskis \cite{lukoseviciute2010evolutionary} dividen la selecc
 
 Otros métodos utilizados para determinar la dimensión intrínseca son el análisis de componentes principales (PCA) el método de Grassberger-Procaccia \cite{grassberger2004measuring} y  el método de Box-Counting. 
 
-\subsection{Red de funciones de base radial}
-Este tipo de red neuronal se caracteriza por el uso de una función de base radial como función de activación de las neuronas. La salida de la red es una combinación lineal de las funciones de base radial aplicadas a la entrada. Aparecen por primera vez en el trabajo de \cite{broomhead1988radial}. 
 
-El trabajo \cite{chen1991orthogonal} es de los primeros en introducir su uso para predicción de series temporales. A partir de entonces numerosos trabajos han aparecido para tratar las cuestiones relacionadas con su uso predicción de series temporales. Su principal ventaja es que los pesos de la red puede ser calculados de forma eficiente una vez estimados los pesos y los radios de las neuronas. A cambio, existen otros parámetros a determinar, como el número de neuronas, los centros y los pesos.
-
-Los centros de la red pueden calcularse con diferentes técnicas de agrupamiento, los radios en cambio, son más difíciles de calcular debido a la existencia de numerosos mínimos locales. Lo que se suele hacer es fijarlos a una cantidad fija, o dependiente de alguna heurística. En \cite{whitehead1996cooperative} se propone usar algoritmos evolutivos, en concreto se utiliza un algoritmo genético cooperativo-competitivo. En los problemas de predicción un tema importante es la no estacionariedad, en \cite{chng1996gradient} abordan este problema modificando la estructura de la red para que responda al gradiente de la serie. El problema del número de neuronas adecuado es tratado en \cite{leung2001prediction} donde proponen un tipo de validación cruzada para encontrar el óptimo.
-
-\subsection{Perceptrón multicapa}
+\subsection{El perceptrón multicapa (MLP)}
 
 El perceptrón multicapa es una red neuronal artificial formada por múltiples capas de neuronas que permiten resolver problemas no linealmente separables. El algoritmo de retro-propagación mediante descenso de gradiente para su entrenamiento fue un importante hallazgo gracias a su eficiencia, sin embargo presenta algunas limitaciones a la hora de extrapolar y también es sensible a los mínimos locales. Sin embargo este tipo de red ha sido ampliamente utilizado para predicción de series temporales. Una revisión de este uso es dada en \cite{hippert2001neural}, \cite{azoff1994neural} y \cite{hoptroff1993principles}.
 
 
+\subsection{Red de funciones de base radial (RBFN)}
+Este tipo de red neuronal se caracteriza por el uso de una función de base radial como función de activación de las neuronas. La salida de la red es una combinación lineal de las funciones de base radial aplicadas a la entrada. Aparecen por primera vez en el trabajo de \cite{broomhead1988radial}. 
+
+El trabajo \cite{chen1991orthogonal} es de los primeros en introducir su uso para predicción de series temporales. A partir de entonces numerosos trabajos han aparecido para tratar las cuestiones relacionadas con su uso predicción de series temporales. Su principal ventaja es que los pesos de la red puede ser calculados de forma eficiente una vez estimados los pesos y los radios de las neuronas. A cambio, existen otros parámetros a determinar, como el número de neuronas, los centros y los pesos.
+
+Los centros de la red pueden calcularse con diferentes técnicas de agrupamiento, los radios en cambio, son más difíciles de calcular debido a la existencia de numerosos mínimos locales. Lo que se suele hacer es fijarlos a una cantidad fija, o dependiente de alguna heurística. En \cite{whitehead1996cooperative} se propuso usar algoritmos evolutivos, en concreto se utiliza un algoritmo genético cooperativo-competitivo. En los problemas de predicción un tema importante es la no estacionariedad, en \cite{chng1996gradient} abordaron este problema modificando la estructura de la red para que responda al gradiente de la serie. El problema del número de neuronas adecuado es tratado en \cite{leung2001prediction} donde proponen un algortimo basado en validación cruzada para encontrar el óptimo.
+
 \subsection{Sistemas difusos}
+La lógica difusa es una forma de lógica multi-valuada que trata el razonamiento como algo aproximado en lugar de exacto donde los valores de verdad están entre 0 y 1. Este valor indica la vaguedad del hecho dado mediante una función de pertenencia mientras que en probabilidad indica la incertidumbre sobre tal hecho. Ambos conceptos son sutilmente diferentes lo que generó una polémica en tanto que las funciones de pertenencia en realidad no representaban incertidumbre. Como consecuencia se añadió una tercera dimensión a la función de pertenencia para indicar esta incertidumbre, cuando esta incertidumbre se representa mediante un intervalo las operaciones aritméticas resultan más fáciles de tratar \cite{liang2000interval}. En general los sistemas difusos de mayor orden están todavía en su infancia.
+
+Entre aquellos que usan sistemas difusos para predicción, son notables los siguientes trabajos:
+
+\begin{itemize}
+
+\item En \cite{jang1993anfis} se presentó la arquitectura y los métodos de aprendizaje del sistema de inferencia difusa basado en red adaptativa (ANFIS), los cuales fueron comparados con otras técnicas de modelos difusos anteriores y redes neuronales obteniendo resultados que mejoraban el rendimiento.
+
+\item También fue destacable el trabajo \cite{gao2005narmax}  donde se aborda la predicción mediante un modelo NARMAX (modelo de media móvil autoregresivo no lineal con variables exógenas) ajustado mediante una metodología de redes neuronales difusas (FNN) tanto hacia adelante como recurrentes.
+
+\item En \cite{kasabov2002denfis} se introdujo un nuevo tipo de sistemas de inferencia difusa denominado DENFIS (sistema de inferencia neuro-difuso dinámico evolutivo), el cual puede trabajar tanto en línea como fuera de línea.
+
+\end{itemize}
+
+\subsection{Máquinas de vectores soporte (SVM)}
+Las SVM son un conjunto de algoritmos de aprendizaje supervisado desarrollados por Vladimir Vapnik y su equipo en los laboratorios AT\&T.
+
+Intuitivamente una SVM construye un hiperplano o conjunto de hiperplanos en un espacio de dimensionalidad muy alta (o incluso infinita) que puede ser utilizado en problemas de clasificación o regresión. Una buena separación entre las clases permitirá una mejor clasificación.
+
+Las máquinas de vectores soporte para predicción han sido estudiadas en numerosos trabajos:
+\begin{itemize}
+
+\item En \cite{cao2003support}, \cite{Tay2001309} y \cite{kim2003financial} se demuestra que pueden obtener un mejor rendimiento que el algoritmo de retro-propagación para predecir series temporales en finanzas. 
+\item \cite{Cao2003321} sugiere utilizar varias redes neuronales mediante SVM (expertos) para entrenar sobre las diferentes regiones disjuntas del espacio de entrada obtenidas mediante mapas de características auto-organizativos y aplica esta técnica con éxito sobre series de referencia de referencia en un estudio comparativo.
+\item También se ha intentado hibridar la capacidad de SVM con los métodos estadísticos convencionales como ARIMA en \cite{pai2005hybrid}.
+ 
+\end{itemize}
 
 
-\subsection{Máquinas de vectores soporte}
-Las máquinas de vectores soporte 
 
 \section{Modelos aplicados a predicción del tráfico}
 
-En general las prácticas actuales en la administración y control de estrategias de tráfico están dominadas por el uso emergente de sistemas de transporte inteligente (STI), el rápido desarrollo de los computadores y la existencia de métodos algorítmicos flexibles. En los últimos años un gran número de trabajos han aparecido describiendo diversas especificaciones matemáticas para modelar las características del tráfico y producir predicciones bajo diferentes condiciones, no existiendo un claro consenso en los diferentes requerimientos involucrados durante el modelado.  Como ejemplo en \cite{Treiber2010983} se discute el término de fase de tráfico en la reproducción de los patrones espacio-temporales de congestión y la necesidad de una definición más precisa de los términos científicos. 
+En general las prácticas actuales en la administración y control de estrategias de tráfico están dominadas por el uso emergente de sistemas de transporte inteligente (STI), el rápido desarrollo de los computadores y la existencia de métodos algorítmicos flexibles. En los últimos años un gran número de trabajos han aparecido describiendo diversas especificaciones matemáticas para modelar las características del tráfico y producir predicciones bajo diferentes condiciones, no existiendo un claro consenso en los diferentes requerimientos involucrados durante el modelado.  Como ejemplo en \cite{Treiber2010983} se discute el término de fase de tráfico en la reproducción de los patrones espacio-temporales de congestión y la necesidad de una definición más precisa de los términos científicos empleados. 
 
-A pesar de las muchas iniciativas que han surgido como respuesta a los retos de una rápida urbanización y una creciente congestión del tráfico, todavía existe una falta de comprensión acerca de la definición apropiada para un STI. En \cite{Debnath201447} se proporciona un marco metodológico para evaluar este concepto a través de diferentes indicadores aplicables a una ciudad. De esta forma evalúan varias ciudades y obtienen para cada una el grado de \emph{inteligencia} según la puntuación obtenida por tales indicadores en cuanto al transporte se refiere.  
+En cuanto a los STI, a pesar de las muchas iniciativas que han surgido como respuesta a los retos de una rápida urbanización y una creciente congestión del tráfico, todavía existe una falta de comprensión acerca de cuál es su definición apropiada. En este sentido, en \cite{Debnath201447} se proporciona un marco metodológico para evaluar este concepto a través de diferentes indicadores aplicables a una ciudad. De esta forma evalúan varias ciudades y obtienen para cada una el grado de \emph{inteligencia} según la puntuación obtenida los indicadores.
 
 Una revisión de los modelos y teorías sobre tráfico fue proporcionada en \cite{Hoogendoorn2001283} donde son clasificados según el nivel de detalle con que se describe el flujo de vehículos. Para cada categoría discuten varias cuestiones como precisión del modelo, su aplicabilidad o calibración y validación.  En esta línea \cite{Vlahogianni2004533} propone un marco de trabajo para el desarrollo de modelos de predicción de tráfico a corto plazo que consiste en desagregar el proceso de modelado en tres partes: determinar el ámbito, el proceso conceptual de especificación de la salida y el proceso de modelado en sí, que incluye la selección del enfoque metodológico apropiado, el tipo de entradas y salidas usadas y la calidad de los datos.
 
 
+\subsection{Métodos convencionales}
+
+En \cite{smith2002comparison} se examina si los métodos de regresión no paramétricos basados en heurísticas mejoradas se acercan al rendimiento de los modelos ARIMA estacionales para predecir tráfico a corto plazo.
+
+
 \subsection{Redes neuronales}
 
-
-En la literatura encontramos un uso extensivo de redes neuronales aplicadas a predicción de tráfico con enfoques muy variopintos en cuanto al modelo de red neuronal y los algoritmos de ML utilizados. Entre los trabajos explorados se enumeran a modo de ejemplos los siguientes:
+En la literatura encontramos un uso extensivo de redes neuronales aplicadas a predicción de tráfico con enfoques muy variados en cuanto al modelo de red neuronal y los algoritmos de entrenamiento utilizados. Entre los trabajos explorados se enumeran a modo de ejemplo los siguientes:
 \begin{itemize}
 
 \item En \cite{Ishak2004452} se realiza una comparación del rendimiento de cuatro arquitecturas diferentes tipo MIMO, a saber: el perceptrón multi-capa (MLP), una red modular que consiste en varios MLPs conectados y recombinados, una red de dos capas ocultas con PCA a la entrada y un sistema de inferencia neuro-difuso denominado CANFIS.
@@ -428,7 +458,6 @@ En \cite{sun2006bayesian} utilizan información de carreteras contiguas para mod
 
 
 \subsection{Otros}
-
 
 Dion y Rakha (2005) \cite{dion2006estimating} utilizaron datos de identificación automática de vehículos para probar un algoritmo de filtrado paso-baja adaptativo capaz de seguir la pista del tiempo medio de viaje en un enlace suprimiendo señales de ruido de alta frecuencia.
 
