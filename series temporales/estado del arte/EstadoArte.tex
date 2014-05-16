@@ -372,9 +372,20 @@ Lukoseviciute y Ragulskis \cite{lukoseviciute2010evolutionary} dividen la selecc
 Otros métodos utilizados para determinar la dimensión intrínseca son el análisis de componentes principales (PCA) el método de Grassberger-Procaccia \cite{grassberger2004measuring} y  el método de Box-Counting. 
 
 \subsection{Red de funciones de base radial}
-Este tipo de red neuronal se caracteriza por el uso de una función de base radial como función de activación de las neuronas. La salida de la red es una combinación lineal de las funciones de base radial aplicadas a la entrada. Entre los múltiples trabajos donde se ha estudiado su uso para predicción de series temporales cabe destacar \cite{chen1991orthogonal} 
+Este tipo de red neuronal se caracteriza por el uso de una función de base radial como función de activación de las neuronas. La salida de la red es una combinación lineal de las funciones de base radial aplicadas a la entrada. Aparecen por primera vez en el trabajo de \cite{broomhead1988radial}. 
+
+El trabajo \cite{chen1991orthogonal} es de los primeros en introducir su uso para predicción de series temporales. A partir de entonces numerosos trabajos han aparecido para tratar las cuestiones relacionadas con su uso predicción de series temporales. Su principal ventaja es que los pesos de la red puede ser calculados de forma eficiente una vez estimados los pesos y los radios de las neuronas. A cambio, existen otros parámetros a determinar, como el número de neuronas, los centros y los pesos.
+
+Los centros de la red pueden calcularse con diferentes técnicas de agrupamiento, los radios en cambio, son más difíciles de calcular debido a la existencia de numerosos mínimos locales. Lo que se suele hacer es fijarlos a una cantidad fija, o dependiente de alguna heurística. En \cite{whitehead1996cooperative} se propone usar algoritmos evolutivos, en concreto se utiliza un algoritmo genético cooperativo-competitivo. En los problemas de predicción un tema importante es la no estacionariedad, en \cite{chng1996gradient} abordan este problema modificando la estructura de la red para que responda al gradiente de la serie. El problema del número de neuronas adecuado es tratado en \cite{leung2001prediction} donde proponen un tipo de validación cruzada para encontrar el óptimo.
+
 \subsection{Perceptrón multicapa}
+
+El perceptrón multicapa es una red neuronal artificial formada por múltiples capas de neuronas que permiten resolver problemas no linealmente separables. El algoritmo de retro-propagación mediante descenso de gradiente para su entrenamiento fue un importante hallazgo gracias a su eficiencia, sin embargo presenta algunas limitaciones a la hora de extrapolar y también es sensible a los mínimos locales. Sin embargo este tipo de red ha sido ampliamente utilizado para predicción de series temporales. Una revisión de este uso es dada en \cite{hippert2001neural}, \cite{azoff1994neural} y \cite{hoptroff1993principles}.
+
+
 \subsection{Sistemas difusos}
+
+
 \subsection{Máquinas de vectores soporte}
 Las máquinas de vectores soporte 
 
