@@ -94,7 +94,7 @@ La publicación \emph{Time Series Analysis: Forecasting and Control} de \cite{Bo
 
 El éxito de la metodología de Box-Jenkins se basa en el hecho de que los modelos pueden imitar el comportamiento de los diversos tipos de series y sin requerir muchos parámetros a estimar en el modelo finalmente elegido. Sin embargo, a mediados de los años sesenta, la selección de un modelo era en gran medida una cuestión subjetiva del investigador, no había ningún algoritmo para encontrar el modelo apropiado. Desde entonces han surgido muchas técnicas y métodos matemáticos para la selección de un modelo ARMA, como el criterio de información Akaike (AIC), el error de predicción final de Akaike (FPE) y el criterio de información bayesiano (BIC). A menudo, estos criterios se reducen a la minimización de errores de predicción a un paso (en la muestra), con un término de penalización para el sobreajuste. FPE también ha sido generalizado para predicción a varios pasos como en \cite{Bhansali1999295}, pero sin embargo no ha sido utilizada en el área aplicada. Este también parece ser el caso de criterios basados en principios de validación cruzada y validación por división muestral (véase por ejemplo, \cite{West19961084}), haciendo uso de errores de predicción fuera-de-muestra.
 
-El problema de añadir información externa (prior) en las predicciones de ARIMA univariado fue considerado por  \cite{Cholette1982375}, \cite{Guerrero1991339} y \cite{deAlba199395}).
+El problema de añadir información externa a priori en las predicciones de ARIMA univariado fue considerado por  \cite{Cholette1982375}, \cite{Guerrero1991339} y \cite{deAlba199395}).
 
 Como alternativa a la metodología de ARIMA univariado, \cite{Parzen198267} propuso la metodología ARARMA. La idea clave es que una serie temporal es transformada de un filtro AR de memoria larga, a un filtro de memoria corta, evitando así un operador de diferenciación más duro. Además, se usa una fase de identificación diferente al convencional de Box-Jenkins. En la competición M (\cite{Makridakis1982111}), los modelos ARARMA consiguieron el MAPE más bajo para horizontes de predicción mayores. 
 
@@ -251,17 +251,16 @@ Los cambios en el almacenamiento y recolección de datos también conducirá a n
 Los conjuntos de datos grandes, también se prestan a métodos de computación intensiva. Mientras las redes neuronales se han usado en predicción durante más de dos décadas, existen muchas cuestiones excepcionales asociadas con su uso e implementación, incluyendo el cuándo van a mejorar probablemente otros métodos. Otros métodos que implican computación pesada (como bagging y boosting) son incluso menos entendidos en el contexto de predicción. Con la disponibilidad de conjuntos de datos muy grandes y potencia alta de computación se espera que ésta sea un área de investigación importante.
 
 \section{Métodos de Machine Learning (ML)}
-En las últimas dos décadas los modelos de ML se han establecido como serios competidores a los modelos estadísticos convencionales en la comunidad de predicción \cite{Ahmed2010594},\cite{Palit2005},\cite{Zhang199835}. Estos modelos, también llamados de caja negra o modelos orientados a datos \cite{Mitchell1997}, son ejemplos de modelos lineales no paramétricos en los que sólo se usan datos históricos para aprender la dependencia estadística entre valores pasados y futuros. Werbos encontró que ANN mejoraba los métodos estadísticos clásicos tales como regresión lineal o el enfoque Box-Jenkins (\cite{Werbos1974} y \cite{Werbos1988339}). En un estudio similar realizado por \cite{Lapedes1987} se concluye que las ANNs pueden ser usadas satisfactoriamente para modelado y predicción de series temporales no lineales. Posteriormente, otros modelos han aparecido tales como árboles de decisión, máquinas de vectores soporte y regresión por vecinos más cercanos (\cite{Hastie2001} y \cite{Alpaydin2004}). Además se ha examinado en varias competiciones de predicción la precisión empírica de varios modelos de ML bajo diferentes condiciones de datos (NN3, NN5 y las competiciones ESTSP \cite{Crone2009456}\cite{Crone}\cite{Lendasse2007}) creando interesantes debates en el área de minería de datos y predicción (\cite{Hand2008}, \cite{Price2009452} y \cite{Crone2009456}).
-
+En las últimas dos décadas los modelos de ML se han establecido como serios competidores a los modelos estadísticos convencionales en la comunidad de predicción (\cite{Ahmed2010594},\cite{Palit2005} y \cite{Zhang199835}). Estos modelos, también llamados de caja negra o modelos orientados a datos \cite{Mitchell1997}, son ejemplos de modelos lineales no paramétricos en los que sólo se usan datos históricos para aprender la dependencia estadística entre valores pasados y futuros. Werbos encontró que ANN mejoraba los métodos estadísticos clásicos tales como regresión lineal o el enfoque Box-Jenkins (\cite{Werbos1974} y \cite{Werbos1988339}). En un estudio similar realizado por \cite{Lapedes1987} se concluye que las ANNs pueden ser usadas satisfactoriamente para modelado y predicción de series temporales no lineales. Posteriormente, otros modelos han aparecido tales como árboles de decisión, máquinas de vectores soporte y regresión por vecinos más cercanos (\cite{Hastie2001} y \cite{Alpaydin2004}). Además se ha examinado en varias competiciones de predicción la precisión empírica de varios modelos de ML bajo diferentes condiciones de datos (NN3, NN5 y las competiciones ESTSP \cite{Crone2009456}\cite{Crone}\cite{Lendasse2007}) creando interesantes debates en el área de minería de datos y predicción (\cite{Hand2008}, \cite{Price2009452} y \cite{Crone2009456}).
 
 El aprendizaje supervisado consiste en el modelado, bajo un conjunto de observaciones finitas, de la relación entre un conjunto de variables de entrada y una o más variables de salida, las cuales se consideran de alguna manera dependientes de la entrada. Una vez que el modelo de esta relación se obtiene, es posible usarlo para predicción a un paso. En predicciones a un paso, los \emph{n} valores previos de la serie son la entrada para formular un problema genérico de regresión. 
 
 El enfoque general para modelar la relación de entrada/salida, con la salida escalar y la entrada vectorial, se basa en la disponibilidad de un conjunto de pares observados conocido como el conjunto de entrenamiento, donde el vector de entrada contiene los \emph{n} valores previos y el valor de salida es el sucesor a aquellos.
 
 \subsection{Técnicas de aprendizaje local\\}
-A continuación se revisa el rol de las técnicas de aprendizaje automático bajo tres aspectos principalmente: la formalización de problemas de predicción de un paso como tareas de aprendizaje supervisado, el uso de técnicas de aprendizaje local como herramienta para tratar datos temporales y el papel de la estrategia de predicción al pasar de predicciones de un paso a multi-paso. 
+El rol de las técnicas de aprendizaje automático se revisa aquí bajo los tres siguientes aspectos: la formalización de problemas de predicción de un paso como tareas de aprendizaje supervisado, el uso de técnicas de aprendizaje local como herramienta para tratar datos temporales y el papel de la estrategia de predicción al pasar de predicciones de un paso a predicciones multi-paso. 
 
-Si bien existen multitud de técnicas de aprendizaje supervisado para predicción, las técnicas de aprendizaje local que se describen a continuación están motivadas por las siguientes razones:
+Si bien existen multitud de técnicas de aprendizaje supervisado para predicción, las técnicas de aprendizaje local están motivadas por las siguientes razones:
 \begin{itemize}
 
 \item No requieren demasiadas suposiciones: el aprendizaje local no supone un conocimiento a priori del proceso subyacente a los datos. La única información disponible se representa por un conjunto de pares entrada/salida. Esta característica es especialmente importante en conjuntos de datos reales donde puede haber valores perdidos y las relaciones no son estacionarias. 
@@ -270,10 +269,10 @@ Si bien existen multitud de técnicas de aprendizaje supervisado para predicció
 
 \item Modelado de no estacionariedad: los métodos de aprendizaje local pueden tratar configuraciones variables en el tiempo, donde el proceso estadístico subyacente de los datos no es estacionario. En este caso, es suficiente con interpretar la noción de vecindad en un sentido espacio-temporal. Para cada punto, los vecinos son muestras similares obtenidas recientemente. Por tanto la variable temporal es tenida en cuenta para mejorar la precisión de las predicciones.
 \end{itemize}
-A continuación se describen dos técnicas de aprendizaje local, a saber, la técnica de vecinos más cercanos y el aprendizaje vago.
+La técnica de vecinos más cercanos y la técnica de aprendizaje vago son descritas a continuación:
 
 \begin{itemize}
-\item{\textbf{Vecinos más cercanos}}: El método de vecinos más cercanos es el ejemplo más sencillo de enfoque local aplicado al problema de predicción. Este método consiste en buscar en el conjunto de datos los vecinos más cercanos al estado actual y predecir que evolucionará de igual manera que lo hizo su vecindad. Este enfoque fue por primera vez propuesto por Lorenz \cite{LORENZEN1969636}. Algunas extensiones consideran más vecinos (aproximaciones de mayor orden) \cite{Ikeguchi1995}. Tong y Lim \cite{Tong1980245} introdujeron análisis de series temporales por aproximación lineal por partes. Priestley \cite{Priestley1988} sugirió la importancia de aproximaciones de mayor orden. Farmer y Sidorowich \cite{Farmer1987845} \cite{Farmer1988} estudiaron el enfoque local y demostraron su efectividad en series temporales sobre varios experimentos numéricos. 
+\item{\textbf{Vecinos más cercanos}}: El método de vecinos más cercanos es el ejemplo más sencillo de enfoque local aplicado al problema de predicción. Este método consiste en buscar en el conjunto de datos los vecinos más cercanos al estado actual y predecir que evolucionará de igual manera que lo hizo su vecindad. Este enfoque fue por primera vez propuesto por Lorenz \cite{LORENZEN1969636}. Algunas extensiones consideran más vecinos (aproximaciones de mayor orden, \cite{Ikeguchi1995}). \cite{Tong1980245} introdujeron análisis de series temporales por aproximación lineal por partes. \cite{Priestley1988} sugirió la importancia de aproximaciones de mayor orden. \cite{Farmer1987845} y \cite{Farmer1988} estudiaron el enfoque local y demostraron su efectividad en series temporales sobre varios experimentos numéricos. 
 
 \item{\textbf{Aprendizaje vago}}: Esta técnica adapta automáticamente el tamaño de la vecindad según un criterio de validación cruzada. El atractivo de esta técnica es su naturaleza tipo \emph{divide y vencerás}, ya que reduce un problema complejo y no lineal a una secuencia de problemas locales manejables. Esto permite explotar el rango completo de técnicas de validación e identificación las cuales son rápidas, fiables y poseen una justificación teórica profunda.
 El procedimiento consiste básicamente en los siguientes pasos: 
@@ -286,7 +285,7 @@ Este método ha sido aplicado con éxito a varios problemas de regresión y pred
 \end{itemize}
 
 \subsubsection{Predicción para horizontes mayores de un paso\\}
-A continuación se consideran tres técnicas para abordar el problema de predicción multi-paso. 
+A continuación se consideran tres técnicas para abordar el problema de predicción multi-paso: 
 \begin{enumerate}
 \item{Mediante recursividad}. Primero se entrena un modelo de un paso y se utiliza para una predicción multi-paso. Una desventaja conocida de este método es su sensibilidad al error estimado pues se acumula en predicciones sucesivas.
 \item{De forma directa}. Esta estrategia entrena tantos modelos como pasos del horizonte, y concatena las soluciones de cada uno formando la predicción del horizonte. No está sujeta a acumulación de errores pero requiere mayor complejidad funcional \cite{Tong1983} para modelar la dependencia entre valores de la serie distantes \cite{Guo1999559}. También tiene la desventaja de ser más costosa computacionalmente al tener que aprender tantos modelos como pasos tenga el horizonte. Entre los modelos usados para implementar este método destacan las redes neuronales \cite{Kline2004226} y árboles de decisión \cite{Tran20099378}.
@@ -294,16 +293,16 @@ A continuación se consideran tres técnicas para abordar el problema de predicc
 \end{enumerate}
 
 \subsubsection{Estrategia de múltiples salidas\\}
-El problema de los enfoques mencionados anteriormente es que obvian la existencia de dependencias estadísticas entre los valores de predicción consecutivos. Para remediar esto, se utilizan modelos para aprender la relación entre el vector de valores pasados y otro vector de valores futuros. La estrategía MIMO (\emph{Multi-Input Multi-Output}) \cite{Bontempi2008145} \cite{Bontempi2011689} evita obviar la dependencia condicional entre los valores futuros aprendiendo un modelo con múltiples salidas. Este método ha sido aplicado a varios problemas reales \cite{Bontempi2008145} \cite{Bontempi2011689} \cite{BenTaieb20093054} \cite{BenTaieb20101950}, sin embargo presenta la desventaja de tener que usar la misma estructura del modelo para predecir cualquier horizonte \cite{BenTaieb20093054}. Una posible variante para superar esta falta de flexibilidad consiste en particionar el horizonte de tamaño \emph{H} en \emph{m} bloques de tamaño \emph{s} y usar MIMO para predecir en cada bloque, lo que se conoce como DIRMO (mezcla entre DIRecta y MIMO). Esto permite calibrar la dependencia de las salidas (sin dependencia en caso de \emph{s = 1} y máxima dependencia con \emph{s = H}
+El problema de los enfoques mencionados anteriormente es que obvian la existencia de dependencias estadísticas entre los valores de predicción consecutivos. Para remediar esto, se utilizan modelos para aprender la relación entre el vector de valores pasados y otro vector de valores futuros. La estrategía MIMO (\emph{Multi-Input Multi-Output}) (\cite{Bontempi2008145} y \cite{Bontempi2011689}) evita obviar la dependencia condicional entre los valores futuros aprendiendo un modelo con múltiples salidas. Este método ha sido aplicado a varios problemas reales (\cite{Bontempi2008145},  \cite{Bontempi2011689}, \cite{BenTaieb20093054} y \cite{BenTaieb20101950}), sin embargo presenta la desventaja de tener que usar la misma estructura del modelo para predecir cualquier horizonte (\cite{BenTaieb20093054}). Una posible variante para superar esta falta de flexibilidad consiste en particionar el horizonte de tamaño \emph{H} en \emph{m} bloques de tamaño \emph{s} y usar MIMO para predecir en cada bloque, lo que se conoce como DIRMO (mezcla entre DIRecta y MIMO). Esto permite calibrar la dependencia de las salidas (sin dependencia en caso de \emph{s = 1} y máxima dependencia con \emph{s = H}
 
 \subsubsection{Aprendizaje local para predicción multipaso\\}
-A continuación se discuten algunos trabajos que usan técnicas de aprendizaje local para tratar específicamente el problema de predicción a largo plazo.  En \cite{McNames1998112} \cite{Bontempi199932} se modifica el aprendizaje local para tener en cuenta el comportamiento temporal de la predicción multi-paso y mejorar así la estrategia recursiva. Otra mejora reciente de la estrategia recursiva es RECNOISY \cite{BenTaieb2011}, la cual introduce perturbaciones en el conjunto de entrenamiento para cada paso del proceso de predicción de forma que pueda manejar de manera más adecuada los valores aproximados. 
+A continuación se discuten algunos trabajos que usan técnicas de aprendizaje local para tratar específicamente el problema de predicción a largo plazo.  En \cite{McNames1998112} y \cite{Bontempi199932} se modifica el aprendizaje local para tener en cuenta el comportamiento temporal de la predicción multi-paso y mejorar así la estrategia recursiva. Otra mejora reciente de la estrategia recursiva es RECNOISY (\cite{BenTaieb2011}), la cual introduce perturbaciones en el conjunto de entrenamiento para cada paso del proceso de predicción de forma que pueda manejar de manera más adecuada los valores aproximados. 
 
-Dos mejoras de aprendizaje vago fueron presentadas en \cite{Sorjamaa2005509}. La primera se basa en una poda iterativa de las entradas, la segunda realiza búsqueda por fuerza bruta en el conjunto posible de entradas mediante una aproximador de \emph{k} vecinos más cercanos (K-NN).
+Dos mejoras de aprendizaje vago fueron presentadas en \cite{Sorjamaa2005509}. La primera se basa en una poda iterativa de las entradas, la segunda realiza búsqueda por fuerza bruta en el conjunto de posible entradas mediante una aproximador de \emph{k} vecinos más cercanos (K-NN).
 
 En \cite{Bontempi2008145} se propone aprendizaje local para predicción MIMO donde se extiende el algoritmo básico de aprendizaje vago para múltiples salidas así como una estrategia de ponderación de los diferentes predictores a largo plazo para mejorar la precisión resultante.
 
-En  \cite{BenTaieb2009}  \cite{BenTaieb20101950} se presenta la estrategia DIRMO con aprendizaje local. Este método ha sido aplicado con éxito en las competiciones de predicción: ESTSP'07 \cite{BenTaieb2009} y NN3\cite{BenTaieb20101950}.
+En  \cite{BenTaieb2009}  \cite{BenTaieb20101950} se presenta la estrategia DIRMO con aprendizaje local. Este método ha sido aplicado con éxito en las competiciones de predicción: ESTSP'07 (\cite{BenTaieb2009}) y NN3 (\cite{BenTaieb20101950}).
 Una revisión más detallada y comparativa de las estrategias para predicción de series temporales multi-paso basadas en el algoritmo de aprendizaje local se puede encontrar en \cite{Roberts1982808}.
 
 
@@ -332,8 +331,10 @@ Otros métodos utilizados para determinar la dimensión intrínseca son el anál
 
 \subsection{El perceptrón multicapa (MLP)}
 
-El perceptrón multicapa es una red neuronal artificial formada por múltiples capas de neuronas que permiten resolver problemas no linealmente separables. El algoritmo de retro-propagación mediante descenso de gradiente para su entrenamiento fue un importante hallazgo gracias a su eficiencia, sin embargo presenta algunas limitaciones a la hora de extrapolar y también es sensible a los mínimos locales. Sin embargo este tipo de red ha sido ampliamente utilizado para predicción de series temporales. Una revisión de este uso es dada en \cite{hippert2001neural}, \cite{azoff1994neural} y \cite{hoptroff1993principles}.
+El perceptrón multicapa, a veces simplementa llamado red neuronal, es quizá la arquitectura de red más ampliamente conocida y usada tanto para clasificación como para regresión \cite{bishop1995neural}. Su arquitectura consiste en múltiples capas de neuronas que permiten resolver problemas no linealmente separables. El algoritmo de retro-propagación mediante descenso de gradiente para su entrenamiento fue un importante hallazgo gracias a su eficiencia. Otro método que se sabe que mejora la eficiencia es Levenberg-Marquard. Sin embargo presenta algunas limitaciones a la hora de extrapolar y también es sensible a los mínimos locales. En cualquier caso este tipo de red ha sido ampliamente utilizado para predicción de series temporales. Una revisión de su uso en este campo es dada por \cite{hippert2001neural}, \cite{azoff1994neural} y \cite{hoptroff1993principles}.
 
+\subsection{Red neuronal bayesiana (BNN)}
+Una red neuronal bayesiana es una red neuronal diseñada sobre la base de la formulación probabilista bayesiana (\cite{mackay1992bayesian}). La idea es tratar los parámetros (pesos) de la red como variables aleatorias que obedecen una distribución a priori. Esta distribución se diseña de forma que favorezca modelos con baja complejidad (y por tanto se obtenga un ajuste suave). Las BNN están relacionadas con el concepto de regularización y la estimación bayesiana de parámetros. Una vez observados los datos, la distribución posterior de los pesos se evalúa y se calcula la predicción de la red. Las predicciones reflejan tanto el aspecto de fluidez impuesto por la distribución a priori, como el ajuste preciso impuesto por los datos observados (véase \cite{dan1997gauss} para los detalles de un algoritmo concreto de entrenamiento).
 
 \subsection{Red de funciones de base radial (RBFN)}
 Este tipo de red neuronal se caracteriza por el uso de una función de base radial como función de activación de las neuronas. La salida de la red es una combinación lineal de las funciones de base radial aplicadas a la entrada. Aparecen por primera vez en el trabajo de \cite{broomhead1988radial}. 
@@ -389,42 +390,24 @@ A nivel tecnológico, los sistemas de detección inalámbricos son una promesa e
 En la literatura encontramos una gran variedad de métodos estadísticos y algunos métodos híbridos aplicados a la predicción del tráfico:
 \begin{itemize}
 \item En \cite{smith2002comparison} se examina si los métodos de regresión no paramétricos basados en heurísticas mejoradas se acercan al rendimiento de los modelos ARIMA estacionales para predecir tráfico a corto plazo.
- 
 \item ARIMA también fue utilizado anteriormente en combinación con mapas auto-organizativos para predicción de horizontes de media hora y una hora, en \cite{van1996combining}. La idea es que cada clase obtenida del mapa posea su propio modelo ARIMA. 
-
 \item El modelo SETAR es propuesto en \cite{ishak2002performance} para evaluar su sensibilidad en diferentes configuraciones y condiciones del tráfico.
-
 \item En \cite{clark2003traffic} se usa una técnica de reconocimiento de patrones basada en un modelo de regresión multivariado no paramétrico.
-
-
 \end{itemize}
-
-
-
-
 
 
 \subsection{Redes neuronales}
 La cuestión de cuándo usar una red neuronal o un modelo estadístico para predecir el tráfico es estudiada en \cite{kirby1997should} donde se discute la relación de estos modelos a la estructura de los datos de tráfico. Independientemente de esta cuestión, en la literatura encontramos un uso extensivo de redes neuronales aplicadas a predicción de tráfico con enfoques muy variados en cuanto al modelo de red neuronal y los algoritmos de entrenamiento utilizados. Entre los trabajos explorados se enumeran a modo de ejemplo los siguientes:
 
 \begin{itemize}
-
 \item En \cite{Ishak2004452} se realiza una comparación del rendimiento de cuatro arquitecturas diferentes tipo MIMO, a saber: el perceptrón multi-capa (MLP), una red modular que consiste en varios MLPs conectados y recombinados, una red de dos capas ocultas con PCA a la entrada y un sistema de inferencia neuro-difuso denominado CANFIS.
-
 \item En \cite{Innamaa2005649} se estudia la capacidad de predicción del tiempo de viaje mediante una MLP demostrando que un modelo relativamente sencillo puede obtener buenos resultados.
-
 \item En \cite{Zhang2000472} se utiliza un enfoque recursivo para predecir con éxito las condiciones de tráfico mediante red neuronal, si bien destacan posibles problemas de sensibilidad en los parámetros y la necesidad de llevar a cabo suficientes experimentos.
-
 \item Otro modelo de red neuronal consistente en una capa de entrada, una capa competitiva y otra de interpolación fue  propuesta en \cite{Dharia2003607} para reducir el tiempo de entrenamiento de backpropagation en un entorno simulado llamado TSIS (Traffic Software Integrated System). 
-
 \item En \cite{abdulhai2002short} se emplea un modelo de red neuronal con retardos temporales (Time Delay Neural Network) evolucionado mediante algoritmos genéticos para predicción de tráfico a corto plazo.
-
 \item El enfoque genético utilizado en \cite{vlahogianni2005optimized} permite seleccionar una estructura de red neuronal adecuada evaluando su rendimiento tanto en datos univariados como multivariados.
-
 \item También se ha usado con éxito un modelo neuro-difuso en \cite{yin2002urban} para predecir el flujo de tráfico en una red urbana de calles señalizadas.
-
 \item El modelo de redes neuronales de espacio de estados (SSNN) es evaluado en \cite{van2006reliable} para estudiar su fiabilidad arrojando buenos resultados. Si bien, en los casos de estudio empleados los detectores están poco espaciados y el entrenamiento se realiza fuera de línea.
-
 \end{itemize}
 
 
@@ -435,7 +418,7 @@ En \cite{castro2009online} se presentó un método de predicción basado en regr
 
 
 \subsection{Redes bayesianas}
-Castillo, Menéndez y Sánchez-Cambronero (2007) \cite{castillo2008predicting} abordan la cuestión de predicción utilizando una red bayesiana que proporciona la densidad conjunta de todas las variables no observadas cuyas densidades marginales y condicionadas permiten realizar predicciones conjuntas e intervalos de probabilidad.
+\cite{castillo2008predicting} abordan la cuestión de predicción utilizando una red bayesiana que proporciona la densidad conjunta de todas las variables no observadas cuyas densidades marginales y condicionadas permiten realizar predicciones conjuntas e intervalos de probabilidad.
 
 En \cite{sun2006bayesian} utilizan información de carreteras contiguas para modelar el flujo mediante una red bayesiana abarcando la cuestión de predicción con datos incompletos.
 
@@ -446,7 +429,6 @@ Dion y Rakha (2005) \cite{dion2006estimating} utilizaron datos de identificació
 En \cite{tam2008using} se realizan algunas modificaciones de mejora sobre este algoritmo para obtener estimaciones más precisas de los tiempos de viaje.
 
 Lam y Yin (2001) \cite{lam2001activity} presentan un modelo de asignación de tráfico basado en actividades diarias. Mediante una regresión múltiple formulan el comportamiento de elección de actividad de los individuos y utilizan después esta información para describir el comportamiento de elección de ruta como la condición de equilibrio dinámica ideal para el usuario.
-
 
 
 \bibliographystyle{apalike-es}
