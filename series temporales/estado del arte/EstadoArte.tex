@@ -67,7 +67,7 @@ En esta sección se resumen algunos trabajos relevantes en el área de predicci�
 
 Los métodos de alisado exponencial habitualmente se utilizan en la estimación de la demanda de un producto para un periodo dado. Una forma sencilla de realizar la predicción consiste en tomar la media ponderada de los valores previos dando mayor peso a los valores más cercanos en el tiempo. El error en la predicción cometido puede ser tenido en cuenta para la siguiente predicción.
 
-Estos métodos tienen su origen en las décadas 50 y 60 con el trabajo de \cite{Brown1959}, \cite{Holt20045} y \cite{Winters1960324}. \cite{Pegels1969311} proporcionó una clasificación sencilla pero útil de la tendencia y los patrones estacionales dependiendo de si eran aditivos (lineales)  o multiplicativos (no lineales).
+Estos métodos tienen su origen en las décadas 50 y 60 con el trabajo de \cite{Brown1959}, \cite{Holt20045} y \cite{Winters1960324}. \cite{Pegels1969311} proporcionó una clasificación de la tendencia y los patrones estacionales dependiendo de si eran aditivos (lineales)  o multiplicativos (no lineales).
 
 Los métodos de alisado exponencial fueron ampliamente utilizados en la industria y los negocios, sin embargo no habían recibido mucha atención por parte de los estadísticos y no tenían un fundamento estadístico bien desarrollado. 
 
@@ -75,7 +75,7 @@ A partir de \cite{Muth1960299} surge la primera base estadística para el alisad
 
 Posteriormente \cite{Box1976} mostraron que algunas predicciones de alisado exponencial resultan ser casos especiales de modelos ARIMA.
 
-\cite{Taylor2003715} proporcionó los únicos métodos de alisado exponencial multiplicativos genuinamente nuevos. Entre las áreas de aplicación se destacan varios entornos que incluyen componentes de computadores (\cite{GardnerJr1993245}), pasajeros de vuelo (\cite{Grubb200171}), y planificación de producción (\cite{Miller1993509}).
+\cite{Taylor2003715} proporcionó los únicos métodos de alisado exponencial multiplicativos genuinamente nuevos. Entre las áreas de aplicación destacan los componentes de computadores (\cite{GardnerJr1993245}), pasajeros de vuelo (\cite{Grubb200171}), y planificación de producción (\cite{Miller1993509}).
 
 En \cite{Hyndman2002439} y en la ampliación de \cite{Taylor2003715} se da una clasificación de este tipo de métodos. Cada método se componen de una de cinco tipos de tendencia (ninguna, aditiva, aditiva alisada, multiplicativa y multiplicativa alisada) y uno de tres tipos de estacionalidad (ninguna, aditiva y multiplicativa). Por tanto, hay 15 métodos diferentes, donde entre los más conocidos está SES (sin tendencia ni estacionalidad), el método lineal de Holt (tendencia aditiva, sin estacionalidad), el método aditivo de Holt-Winters (tendencia aditiva y estacionalidad aditiva), y el método no lineal de Holt-Winters (tendencia aditiva y estacionalidad multiplicativa).
 
@@ -84,7 +84,7 @@ En \cite{Hyndman2002439} y en la ampliación de \cite{Taylor2003715} se da una c
 
 Los primeros intentos de estudiar series temporales estaban generalmente caracterizados por la idea de un mundo determinista. La mayor contribución de \cite{Yule1927267} fue la que impulsó la noción de aleatoriedad en series temporales postulando que cada serie temporal puede ser considerada como la realización de un proceso estocástico. Basado en esa sencilla idea, se desarrolló desde entonces una gran variedad de métodos de series temporales. Slutsky, Walker, Yaglom y Yule formularon el concepto de los modelos auto-regresivos (AR) y media móvil (MA). El teorema de la descomposición de Wold condujo a la formulación y solución del problema de predicción lineal de \cite{Kolmogorov19411}. Desde entonces, ha aparecido una gran cantidad de literatura tratando la estimación e identificación de parámetros, comprobación de modelos y predicción. En \cite{Newbold198323} podemos ver un estudio anterior.
 
-La publicación \emph{Time Series Analysis: Forecasting and Control} de \cite{Box1976} reunió el conocimiento existente hasta la fecha. Además, estos autores desarrollaron una ciclo coherente, versátil e iterativo en tres etapas para la identificación, estimación y verificación de series temporales, conocido como el enfoque Box-Jenkins. El libro ha tenido un enorme impacto en la teoría y práctica moderna de análisis y predicción de series temporales. Con la llegada de los ordenadores, se popularizó el uso de los modelos ARIMA y se extendió a muchas áreas de la ciencia. Prueba de ellos son los numerosos estudios de naturaleza empírica que usan estos modelos como punto de referencia para comparar.
+La publicación \emph{Time Series Analysis: Forecasting and Control} de \cite{Box1976} reunió el conocimiento existente hasta la fecha. Además, estos autores desarrollaron una metodología coherente, versátil e iterativa en tres etapas para la identificación, estimación y verificación de series temporales, conocida como el enfoque Box-Jenkins. El libro ha tenido un enorme impacto en la teoría y práctica moderna de análisis y predicción de series temporales. Con la llegada de los ordenadores, se popularizó el uso de los modelos ARIMA y se extendió a muchas áreas de la ciencia. Prueba de ellos son los numerosos estudios de naturaleza empírica que usan estos modelos como punto de referencia para comparar.
 
 \begin{table}
 \caption{Lista de ejemplos de aplicaciones reales}
@@ -99,7 +99,7 @@ La publicación \emph{Time Series Analysis: Forecasting and Control} de \cite{Bo
 \end{table}
 \subsubsection{Univariado}
 
-El éxito de la metodología de Box-Jenkins se basa en el hecho de que los modelos pueden imitar el comportamiento de los diversos tipos de series y sin requerir muchos parámetros a estimar en el modelo finalmente elegido. Sin embargo, a mediados de los años sesenta, la selección de un modelo era en gran medida una cuestión subjetiva del investigador, no había ningún algoritmo para encontrar el modelo apropiado. Desde entonces han surgido muchas técnicas y métodos matemáticos para la selección de un modelo ARMA, como el criterio de información Akaike (AIC), el error de predicción final de Akaike (FPE) y el criterio de información bayesiano (BIC). A menudo, estos criterios se reducen a la minimización de errores de predicción a un paso (en la muestra), con un término de penalización para el sobreajuste. FPE también ha sido generalizado para predicción a varios pasos como en \cite{Bhansali1999295}, pero sin embargo no ha sido utilizada en el área aplicada. Este también parece ser el caso de criterios basados en principios de validación cruzada y validación por división muestral (véase por ejemplo, \cite{West19961084}), haciendo uso de errores de predicción fuera-de-muestra.
+El  de la metodología de Box-Jenkins se basa en el hecho de que los modelos pueden imitar el comportamiento de los diversos tipos de series y sin requerir muchos parámetros a estimar en el modelo finalmente elegido. Sin embargo, a mediados de los años sesenta, la selección de un modelo era en gran medida una cuestión subjetiva del investigador, no había ningún algoritmo para encontrar el modelo apropiado. Desde entonces han surgido muchas técnicas y métodos matemáticos para la selección de un modelo ARMA, como el criterio de información Akaike (AIC), el error de predicción final de Akaike (FPE) y el criterio de información bayesiano (BIC). A menudo, estos criterios se reducen a la minimización de errores de predicción a un paso (en la muestra), con un término de penalización para el sobreajuste. FPE también ha sido generalizado para predicción a varios pasos como en \cite{Bhansali1999295}, pero sin embargo no ha sido utilizada en el área aplicada. Este también parece ser el caso de criterios basados en principios de validación cruzada y validación por división muestral (véase por ejemplo, \cite{West19961084}), haciendo uso de errores de predicción fuera-de-muestra.
 
 El problema de añadir información externa a priori en las predicciones de ARIMA univariado fue considerado por  \cite{Cholette1982375}, \cite{Guerrero1991339} y \cite{deAlba199395}).
 
@@ -123,7 +123,7 @@ En general, los modelos VAR tienden a sufrir sobreajuste con demasiados parámet
 \subsection{Estacionalidad}
 El enfoque más antiguo para controlar la estacionalidad en series temporales es extraerla usando un procedimiento iterativo de descomposición como el método X-11. Este método y sus variantes (incluyendo versiones más reciente como X-12-ARIMA, \cite{Findley1998127}), han sido estudiados de forma extensiva durante los últimos años derivando en varios enfoques.
 
-Uno de ellos trata el uso de predicción como parte del método de descomposición estacional. \cite{Quenneville2003727} con otro enfoque observaron las predicciones implícitas mediante los filtros de medias móviles asimétricos del método x-11 y sus variantes. 
+Uno de ellos trata el uso de predicción como parte del método de descomposición estacional. \cite{Quenneville2003727} con otro enfoque observaron las predicciones implícitas mediante los filtros de medias móviles asimétricos del método X-11 y sus variantes. 
 
 Además de trabajar en el método X-11 y sus variantes, también se han desarrollado varios métodos nuevos para el ajuste estacional, entre los que destaca el enfoque basado en modelo de TRAMO-SEATS (\cite{Gomez2001} y \cite{Kaiser2005691}) y el método no paramétrico STL (\cite{Cleveland19903}). Otra propuesta ha sido el uso de modelos sinusoidales (\cite{Simmons1990485}).
 
@@ -310,6 +310,8 @@ En \cite{ferreira2008new} se presenta un método evolutivo inspirado en el teore
 
 Lukoseviciute y Ragulskis \cite{lukoseviciute2010evolutionary} dividen la selección de retardos en dos etapas, encontrando primero la dimensión óptima del espacio de fases mediante el algoritmo de falsos vecinos más cercanos y a continuación buscando un conjunto óptimo de retardos más cercanos mediante un algoritmo evolutivo para un sistema de inferencia difuso.
 
+En \cite{parras2012coevolution} se presenta un método coevolutivo para una RBFN que determina tanto los parámetros del modelo como la dimensión activa.
+
 Otros métodos utilizados para determinar la dimensión intrínseca son el análisis de componentes principales (PCA) el método de Grassberger-Procaccia \cite{grassberger2004measuring} y  el método de Box-Counting. 
 
 
@@ -386,23 +388,32 @@ En la literatura encontramos una gran variedad de métodos estadísticos y algun
 \item En \cite{clark2003traffic} se usa una técnica de reconocimiento de patrones basada en un modelo de regresión multivariado no paramétrico.
 \item El modelo STARIMA (\emph{Space-Time ARIMA}) es usado en \cite{kamarianakis2005space} para representar y predecir tráfico estacionario en consonancia con las teorías del equilibrio del flujo de tráfico de \cite{wardrop1952correspondence}. 
 \item Un modelo similar STARMA es empleado en \cite{min2011real}.
+\item En \cite{stathopoulos2003multivariate} sugieren usar diferentes especificaciones de modelos para determinados periodos de tiempo a lo largo del día. Además obtienen mejoras con modelos de espacio de estado multivariado sobre modelos univariados como ARIMA.
 \end{itemize}
 
 \subsection{Redes neuronales}
 La cuestión de cuándo usar una red neuronal o un modelo estadístico para predecir el tráfico es estudiada en \cite{kirby1997should} donde se discute la relación de estos modelos a la estructura de los datos de tráfico. Además de esta cuestión, en la literatura encontramos un uso extensivo de redes neuronales aplicadas a predicción de tráfico con enfoques muy variados en cuanto al modelo de red neuronal y los algoritmos de entrenamiento utilizados. Entre los trabajos explorados se enumeran a modo de ejemplo los siguientes:
 
 \begin{itemize}
-\item En \cite{Ishak2004452} se realiza una comparación del rendimiento de cuatro arquitecturas diferentes tipo MIMO, a saber: el perceptrón multi-capa (MLP), una red modular que consiste en varios MLPs conectados y recombinados, una red de dos capas ocultas con PCA a la entrada y un sistema de inferencia neuro-difuso denominado CANFIS.
 \item En \cite{Innamaa2005649} se estudia la capacidad de predicción del tiempo de viaje mediante una MLP demostrando que un modelo relativamente sencillo puede obtener buenos resultados.
 \item En \cite{Zhang2000472} se utiliza un enfoque recursivo para predecir con éxito las condiciones de tráfico mediante red neuronal, si bien destacan posibles problemas de sensibilidad en los parámetros y la necesidad de llevar a cabo suficientes experimentos.
 \item Otro modelo de red neuronal consistente en una capa de entrada, una capa competitiva y otra de interpolación fue  propuesta en \cite{Dharia2003607} para reducir el tiempo de entrenamiento de backpropagation en un entorno simulado llamado TSIS (Traffic Software Integrated System). 
-\item En \cite{abdulhai2002short} se emplea un modelo de red neuronal con retardos temporales (Time Delay Neural Network) evolucionado mediante algoritmos genéticos para predicción de tráfico a corto plazo.
+\item En \cite{abdulhai2002short} se emplea un modelo de red neuronal con retardos temporales (Time Delay Neural Network) evolucionado mediante algoritmos genéticos para predicción de tráfico a corto plazo. 
+\item El modelo de red neuronal wavelet (WNN) recurrente con retardos temporales es estudiado en \cite{jiang2005dynamic} donde muestran su capacidad de predicción tanto a corto plazo como a largo plazo.
 \item El enfoque genético utilizado en \cite{vlahogianni2005optimized} permite seleccionar una estructura de red neuronal adecuada evaluando su rendimiento tanto en datos univariados como multivariados.
-\item También se ha usado con éxito un modelo neuro-difuso en \cite{yin2002urban} para predecir el flujo de tráfico en una red urbana de calles señalizadas.
-\item El modelo de redes neuronales de espacio de estados (SSNN) es evaluado en \cite{van2006reliable} para estudiar su fiabilidad arrojando buenos resultados. Si bien, en los casos de estudio empleados los detectores están poco espaciados y el entrenamiento se realiza fuera de línea.
+\item El modelo de redes neuronales de espacio de estados (SSNN) es evaluado en \cite{van2005accurate} y ampliado en \cite{van2006reliable} para estudiar su fiabilidad arrojando buenos resultados. Si bien, en los casos de estudio empleados los detectores están poco espaciados y el entrenamiento se realiza fuera de línea.
 \item \cite{chen2001use} estudia un algoritmo en linea para aprendizaje dinámico sobre red neuronal comparando su rendimiento con el método de entrenamiento basado en el filtro de Kalman.
+
 \end{itemize}
 
+
+\subsection{Sistemas difusos}
+
+\begin{itemize}
+\item En \cite{Ishak2004452} se realiza una comparación del rendimiento de cuatro arquitecturas diferentes tipo MIMO, a saber: el perceptrón multi-capa (MLP), una red modular que consiste en varios MLPs conectados y recombinados, una red de dos capas ocultas con PCA a la entrada y un sistema de inferencia neuro-difuso denominado CANFIS. 
+\item También se ha usado con éxito un modelo neuro-difuso en \cite{yin2002urban} para predecir el flujo de tráfico en una red urbana de calles señalizadas.
+\item En \cite{boto2010wavelet}  entrenan una red neuronal difusa ARTMAP para reconocer los patrones de flujo durante un horizonte fijo, una vez eliminado el ruido de la serie mediante wavelet.
+\end{itemize}
 
 \subsection{Máquinas de vectores soporte}
 
@@ -410,7 +421,7 @@ En \cite{castro2009online} se presentó un método de predicción basado en regr
 
 
 \subsection{Redes bayesianas}
-\cite{castillo2008predicting} abordan la cuestión de predicción utilizando una red bayesiana que proporciona la densidad conjunta de todas las variables no observadas cuyas densidades marginales y condicionadas permiten realizar predicciones conjuntas e intervalos de probabilidad.
+\cite{castillo2008predicting} abordan la cuestión de predicción utilizando una red bayesiana que proporciona la densidad conjunta de todas las variables no observadas cuyas densidades marginales y condicionadas permiten realizar predicciones conjuntas e intervalos de predicción.
 
 En \cite{sun2006bayesian} utilizan información de carreteras contiguas para modelar el flujo mediante una red bayesiana abarcando la cuestión de predicción con datos incompletos.
 
@@ -447,7 +458,7 @@ Los cambios en el almacenamiento y recolección de datos también conducirá a n
 
 Los conjuntos de datos grandes, también se prestan a métodos de computación intensiva. Mientras las redes neuronales se han usado en predicción durante más de dos décadas, existen muchas cuestiones excepcionales asociadas con su uso e implementación, incluyendo el cuándo van a mejorar probablemente otros métodos. Otros métodos que implican computación pesada (como bagging y boosting) son incluso menos entendidos en el contexto de predicción. Con la disponibilidad de conjuntos de datos muy grandes y potencia alta de computación se espera que ésta sea un área de investigación importante.
 
-En cuanto al uso de técnicas de predicción en el ámbito del tráfico vehicular, los métodos utilizados varían en gran medida debido a las diferencias fundamentales del modelado, objetivos y características de los datos. Tales diferencias ponen de manifiesto un campo de aplicación novedoso y poco desarrollado en el que las técnicas de predicción son un factor clave para su crecimiento. En este sentido se espera que aparezcan diferentes trabajos de comparación empírica que permitan a los profesionales seleccionar las técnicas y modelos más adecuados a los objetivos teniendo en cuenta las tecnologías y sistemas de información existentes o en estado de implementación.
+En cuanto al uso de técnicas de predicción en el ámbito del tráfico de vehículos, los métodos utilizados varían en gran medida debido a las diferencias fundamentales del modelado, objetivos y características de los datos. Tales diferencias ponen de manifiesto un campo de aplicación novedoso y poco desarrollado en el que las técnicas de predicción son un factor clave para su avance. En este sentido se espera que aparezcan diferentes trabajos de comparación empírica que permitan a los profesionales seleccionar las técnicas y modelos más adecuados a los objetivos teniendo en cuenta las tecnologías y sistemas de información existentes. Como conclusión, el problema de la predicción de tráfico a corto y medio plazo ha sido resuelto con diferentes modelos y algoritmos variados. Algunos de estos métodos han sido recopilados aquí para reunir el conocimiento existente y ofrecer una visión generalista de la investigación acumulada relacionada con la predicción de tráfico.
 
 
 \bibliographystyle{apalike-es}

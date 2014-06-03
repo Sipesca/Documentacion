@@ -1,18 +1,18 @@
 medida;descripcion;expresion
-MSE;Mean squared error;$ mean(e_{t}^2) $
-RMSE;Root mean squared error;$ \sqrt{MSE} $
-MAE Mean;Absolute error;$ mean(|e_{t}|) $
-MdAE;Median absolute error;$ median(|e_{t}|) $
-MAPE;Mean absolute percentage error;$ mean(|p_{t}|) $
-MdAPE;Median absolute percentage error;$ median(|p_{t}|) $
+MSE;Error cuadrático medio;$ mean(e_{t}^2) $
+RMSE;Raíz cuadrada de MSE;$ \sqrt{MSE} $
+MAE;Error medio absoluto;$ mean(|e_{t}|) $
+MdAE;Mediana del MAE;$ median(|e_{t}|) $
+MAPE;Media de error porcentual absoluto;$ mean(|p_{t}|) $
+MdAPE;Mediana de error porcentual absoluto;$ median(|p_{t}|) $
 sMAPE;Symmetric mean absolute percentage error;$ mean(2|Y_{t}-F_{t}|/(Y_{t}-F_{t})) $
-sMdAPE;Symmetric median absolute percentage error;$ median(2|Y_{t}-F_{t}|/(Y_{t}-F_{t})) $
-MRAE;Mean relative absolute error;$ mean(r_{t}) $
-MdRAE;Median relative absolute error;$ median(r_{t}) $
-GMRAE;Geometric mean relative absolute error;$ gmean(r_{t}) $
-RelMAE;Relative mean absolute error;$ MAE/MAE_{b}$
-RelRMSE;Relative root mean squared error;$ RMSE/RMSE_{b} $
-LMR;Log mean squared error ratio;$ log(RelMSE)$
-PB;Percentage better;$ 100mean(/\lbrace r_{t} < 1 \rbrace) $
-PB(MAE);Percentage better (MAE);$ 100mean(/\lbrace MAE < MAE_{b} \rbrace) $
-PB(MSE);Percentage better (MSE);$ 100mean(/\lbrace MSE < MSE_{b} \rbrace) $
+sMdAPE;Mediana simétrica del error porcentual absoluto;$ median(2|Y_{t}-F_{t}|/(Y_{t}-F_{t})) $
+MRAE;Media relativa del error absoluto;$ mean(r_{t}) $
+MdRAE;Mediana relativa del error absoluto;$ median(r_{t}) $
+GMRAE;Media geométrica del error relativo absoluto;$ gmean(r_{t}) $
+RelMAE;Erorr relativo absoluto medio;$ MAE/MAE_{b}$
+RelRMSE;Error relativo de raíz de MSE;$ RMSE/RMSE_{b} $
+LMR;Logaritmo de RelRMSE;$ log(RelMSE)$
+PB;Mejor porcentaje;$ 100mean(/\lbrace r_{t} < 1 \rbrace) $
+PB(MAE);Mejor porcentaje (MAE);$ 100mean(/\lbrace MAE < MAE_{b} \rbrace) $
+PB(MSE);Mejor porcentaje (MSE);$ 100mean(/\lbrace MSE < MSE_{b} \rbrace) $
